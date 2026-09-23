@@ -6,8 +6,15 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, Session
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///spingo.db")
+
+# Render fournit parfois une URL PostgreSQL sans pilote explicite.
+# SQLAlchemy doit utiliser psycopg (v3), installé dans requirements.txt.
 if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg://", 1)
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
+elif DATABASE_URL.startswith("postgresql+psycopg2://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql+psycopg2://", "postgresql+psycopg://", 1)
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 

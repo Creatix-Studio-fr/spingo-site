@@ -36,3 +36,8 @@ Le formulaire, lui, nécessite le serveur Flask (`python app.py`) pour enregistr
 
 ## Render
 Le serveur Flask continue de servir `index.html` et `style.css`, donc les chemins relatifs fonctionnent aussi une fois le site en ligne.
+
+
+## Correctif Render PostgreSQL
+`app.py` force maintenant SQLAlchemy à utiliser `postgresql+psycopg://`.
+Cela évite l'erreur `ModuleNotFoundError: No module named 'psycopg2'`.
