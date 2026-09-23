@@ -7,11 +7,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///spingo.db")
 if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg://", 1)
-elif DATABASE_URL.startswith("postgresql://"):
-    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
-elif DATABASE_URL.startswith("postgresql+psycopg2://"):
-    DATABASE_URL = DATABASE_URL.replace("postgresql+psycopg2://", "postgresql+psycopg://", 1)
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 
@@ -58,12 +54,12 @@ def register():
     with Session(engine) as db:
         existing = db.scalar(select(Tester).where(Tester.email == email))
         if existing:
-            return jsonify(ok=True, message="Tu es déjà inscrit. Tu recevras les informations du test le 4 octobre. 🚀")
+            return jsonify(ok=True, message="Tu es déjà inscrit. Tu recevras les informations du test le 26 septembre. 🚀")
 
         db.add(Tester(email=email, created_at=datetime.now(timezone.utc)))
         db.commit()
 
-    return jsonify(ok=True, message="Inscription confirmée ! Tu recevras le lien le 4 octobre. 🚀")
+    return jsonify(ok=True, message="Inscription confirmée ! Tu recevras le lien le 26 septembre. 🚀")
 
 @app.get("/health")
 def health():

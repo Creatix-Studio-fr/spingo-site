@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#08080d">
 <meta name="description" content="SpinGO — rejoins le test privé de la prochaine version.">
-<title>SpinGO — Prochaine version le 4 octobre</title>
+<title>SpinGO — Prochaine version le 26 septembre</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
 <main id="top">
 <section class="hero">
   <div>
-    <div class="badge">🚀 Nouvelle version • 4 octobre 2026</div>
+    <div class="badge">🚀 Nouvelle version • 26 septembre 2026</div>
     <h1>Quand tu ne sais pas quoi choisir,<em> fais tourner.</em></h1>
     <p class="lead">SpinGO est une roue de décision simple, rapide et personnalisable. Crée tes choix, lance la roue et laisse le hasard décider.</p>
     <div class="actions">
@@ -52,25 +52,61 @@
   </div>
 </section>
 
-<section class="screens">
-  <div class="eyebrow">Aperçu</div>
-  <h2>Voici à quoi ressemble SpinGO.</h2>
-  <p class="sub">Remplace les trois fichiers image par tes captures d'écran avant la publication.</p>
-  <div class="gallery">
-    <figure><img src="screenshot-1.png" onerror="this.parentElement.classList.add('empty');this.remove()"><figcaption>Accueil</figcaption></figure>
-    <figure class="big"><img src="screenshot-2.png" onerror="this.parentElement.classList.add('empty');this.remove()"><figcaption>Création d'une roue</figcaption></figure>
-    <figure><img src="screenshot-3.png" onerror="this.parentElement.classList.add('empty');this.remove()"><figcaption>Résultat</figcaption></figure>
+<section class="screens" id="screens">
+  <div class="showcase-head">
+    <div>
+      <div class="eyebrow">APERÇU</div>
+      <h2>Voici à quoi ressemble <span>SpinGO.</span></h2>
+    </div>
+    <p>Explore les différentes étapes de l'expérience SpinGO.</p>
   </div>
+
+  <div class="showcase">
+    <article class="screen-card screen-card-main">
+      <div class="device-frame">
+        <div class="device-top"></div>
+        <img src="screenshot-1.png" alt="Capture d'écran de l'accueil SpinGO">
+      </div>
+      <div class="screen-label">
+        <span class="number">01</span>
+        <div><strong>Accueil</strong><small>Retrouve tes roues en un instant.</small></div>
+      </div>
+    </article>
+
+    <article class="screen-card screen-card-featured">
+      <div class="device-frame">
+        <div class="device-top"></div>
+        <img src="screenshot-2.png" alt="Capture d'écran de création d'une roue SpinGO">
+      </div>
+      <div class="screen-label">
+        <span class="number">02</span>
+        <div><strong>Création</strong><small>Personnalise chaque détail de ta roue.</small></div>
+      </div>
+    </article>
+
+    <article class="screen-card screen-card-main">
+      <div class="device-frame">
+        <div class="device-top"></div>
+        <img src="screenshot-3.png" alt="Capture d'écran du résultat SpinGO">
+      </div>
+      <div class="screen-label">
+        <span class="number">03</span>
+        <div><strong>Résultat</strong><small>Lance la roue et laisse le hasard décider.</small></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="swipe-hint">← Fais glisser pour découvrir les captures →</div>
 </section>
 
 <section id="test" class="test">
   <div class="testbox">
     <div class="eyebrow">Test privé</div>
     <h2>Tu veux tester la prochaine version ?</h2>
-    <p class="sub">La nouvelle version de SpinGO sera lancée le <strong>4 octobre 2026</strong>. Inscris ton adresse e-mail pour recevoir le lien de téléchargement.</p>
+    <p class="sub">La nouvelle version de SpinGO sera lancée le <strong>26 septembre 2026</strong>. Inscris ton adresse e-mail pour recevoir le lien de téléchargement.</p>
     <div class="steps">
       <div><span>01</span><p><strong>Inscris-toi maintenant.</strong><br>Ton adresse est enregistrée pour le test.</p></div>
-      <div><span>02</span><p><strong>Le 4 octobre.</strong><br>Tu recevras le lien pour télécharger SpinGO.</p></div>
+      <div><span>02</span><p><strong>Le 26 septembre.</strong><br>Tu recevras le lien pour télécharger SpinGO.</p></div>
       <div><span>03</span><p><strong>Garde l'application pendant 14 jours.</strong><br>Le test doit durer au minimum 14 jours.</p></div>
     </div>
     <form id="form">
@@ -86,7 +122,7 @@
 </section>
 </main>
 
-<footer><span>© 2026 SpinGO</span><span>Test privé • 4 octobre 2026</span></footer>
+<footer><span>© 2026 SpinGO</span><span>Test privé • 26 septembre 2026</span></footer>
 
 <script>
 const form=document.querySelector("#form"), msg=document.querySelector("#msg"), btn=form.querySelector("button");
