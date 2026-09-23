@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08080d">
+<meta name="description" content="SpinGO — rejoins le test privé de la prochaine version.">
+<title>SpinGO — Prochaine version le 26 septembre</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#top"><span>S</span> SpinGO</a>
+  <a class="navlink" href="#test">Rejoindre le test</a>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="badge">🚀 Nouvelle version • 26 septembre 2026</div>
+    <h1>Quand tu ne sais pas quoi choisir,<em> fais tourner.</em></h1>
+    <p class="lead">SpinGO est une roue de décision simple, rapide et personnalisable. Crée tes choix, lance la roue et laisse le hasard décider.</p>
+    <div class="actions">
+      <a class="btn primary" href="#test">Recevoir le lien de test</a>
+      <a class="btn ghost" href="#features">Découvrir l'app ↓</a>
+    </div>
+    <p class="privacy">🔒 Ton adresse e-mail est utilisée uniquement pour le test SpinGO.</p>
+  </div>
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="topline">SpinGO</div>
+        <div class="wheel">
+          <div class="center">SPIN</div>
+        </div>
+        <div class="pointer"></div>
+        <div class="launch">LANCER LA ROUE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="eyebrow">Simple. Rapide. Fun.</div>
+  <h2>SpinGO sert à transformer<br>un choix en expérience.</h2>
+  <p class="sub">Que choisir pour manger ? Quel jeu lancer ? Qui commence ? Crée une roue adaptée à chaque situation.</p>
+  <div class="grid">
+    <article><b>🎡</b><h3>Crée tes roues</h3><p>Ajoute tes propres choix et construis une roue qui correspond exactement à ton besoin.</p></article>
+    <article><b>⚡</b><h3>Lance en une seconde</h3><p>Une expérience pensée pour aller droit au but, avec une animation claire et agréable.</p></article>
+    <article><b>💾</b><h3>Retrouve tes roues</h3><p>Conserve tes créations préférées pour les réutiliser quand tu veux.</p></article>
+  </div>
+</section>
+
+<section class="screens">
+  <div class="eyebrow">Aperçu</div>
+  <h2>Voici à quoi ressemble SpinGO.</h2>
+  <p class="sub">Remplace les trois fichiers image par tes captures d'écran avant la publication.</p>
+  <div class="gallery">
+    <figure><img src="/screenshot-1.png" onerror="this.parentElement.classList.add('empty');this.remove()"><figcaption>Accueil</figcaption></figure>
+    <figure class="big"><img src="/screenshot-2.png" onerror="this.parentElement.classList.add('empty');this.remove()"><figcaption>Création d'une roue</figcaption></figure>
+    <figure><img src="/screenshot-3.png" onerror="this.parentElement.classList.add('empty');this.remove()"><figcaption>Résultat</figcaption></figure>
+  </div>
+</section>
+
+<section id="test" class="test">
+  <div class="testbox">
+    <div class="eyebrow">Test privé</div>
+    <h2>Tu veux tester la prochaine version ?</h2>
+    <p class="sub">La nouvelle version de SpinGO sera lancée le <strong>26 septembre 2026</strong>. Inscris ton adresse e-mail pour recevoir le lien de téléchargement.</p>
+    <div class="steps">
+      <div><span>01</span><p><strong>Inscris-toi maintenant.</strong><br>Ton adresse est enregistrée pour le test.</p></div>
+      <div><span>02</span><p><strong>Le 26 septembre.</strong><br>Tu recevras le lien pour télécharger SpinGO.</p></div>
+      <div><span>03</span><p><strong>Garde l'application pendant 14 jours.</strong><br>Le test doit durer au minimum 14 jours.</p></div>
+    </div>
+    <form id="form">
+      <label for="email">Adresse e-mail</label>
+      <div class="formrow">
+        <input id="email" type="email" placeholder="toi@exemple.fr" autocomplete="email" required>
+        <button>Je rejoins le test →</button>
+      </div>
+      <small>En t'inscrivant, tu acceptes de recevoir les informations liées au test SpinGO.</small>
+      <p id="msg" class="msg"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><span>© 2026 SpinGO</span><span>Test privé • 26 septembre 2026</span></footer>
+
+<script>
+const form=document.querySelector("#form"), msg=document.querySelector("#msg"), btn=form.querySelector("button");
+form.addEventListener("submit",async e=>{
+ e.preventDefault(); btn.disabled=true; btn.textContent="Inscription…"; msg.textContent="";
+ try{
+  const r=await fetch("/api/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:document.querySelector("#email").value})});
+  const d=await r.json(); msg.textContent=d.message; msg.className="msg "+(r.ok?"ok":"bad"); if(r.ok) form.reset();
+ }catch{msg.textContent="Une erreur est survenue. Réessaie dans quelques secondes.";msg.className="msg bad";}
+ btn.disabled=false;btn.textContent="Je rejoins le test →";
+});
+</script>
+</body></html>
