@@ -41,3 +41,16 @@ Le serveur Flask continue de servir `index.html` et `style.css`, donc les chemin
 ## Correctif Render PostgreSQL
 `app.py` force maintenant SQLAlchemy à utiliser `postgresql+psycopg://`.
 Cela évite l'erreur `ModuleNotFoundError: No module named 'psycopg2'`.
+
+
+## Espace admin
+
+La page `/admin` permet de voir les inscriptions sans service payant supplémentaire.
+
+Dans Render → Web Service → Environment, ajoute :
+- `ADMIN_PASSWORD` : un mot de passe fort pour la page admin
+- `FLASK_SECRET_KEY` : une longue valeur aléatoire secrète pour sécuriser les sessions
+
+Ensuite ouvre `https://TON-DOMAINE.onrender.com/admin`.
+
+La page permet de voir le nombre de testeurs, les adresses e-mail et leur date d'inscription, ainsi que de télécharger un CSV.
